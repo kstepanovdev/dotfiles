@@ -195,3 +195,7 @@ exec --no-startup-id mako
 # wifi nm-applet
 exec --no-startup-id "nm-applet --indicator"
 
+# spotify/audio controls
+bindsym $mod+F2 exec "playerctl previous"
+bindsym $mod+F3 exec "playerctl play-pause"
+bindsym $mod+F4 exec "playerctl next"
