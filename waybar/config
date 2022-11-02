@@ -1,0 +1,142 @@
+[
+	{
+	    // -------------------------------------------------------------------------
+	    // Header 
+	    // -------------------------------------------------------------------------
+
+	    "layer": "top",
+	    "position": "top",
+	    "height": 30,
+	    "modules-left": [
+		"disk",
+		"memory", 
+		"cpu", 
+		"temperature", 
+		"pulseaudio", 
+		"battery",
+	    ],
+	    "modules-center": [
+		"sway/window"
+	    ],
+	    "modules-right": [
+		"sway/workspaces", 
+		"sway/language",
+		"tray",
+		"custom/weather", 
+		"clock", 
+	    ],
+
+	    // -------------------------------------------------------------------------
+	    // Modules
+	    // -------------------------------------------------------------------------
+
+	    "battery": {
+		"interval": 10,
+		"states": {
+		    "warning": 30,
+		    "critical": 15
+		},
+		// Connected to AC
+		"format": "  {icon}  {capacity}%", // Icon: bolt
+		// Not connected to AC
+		"format-discharging": "{icon}  {capacity}%",
+		"format-icons": [
+		    "", // Icon: battery-full
+		    "", // Icon: battery-three-quarters
+		    "", // Icon: battery-half
+		    "", // Icon: battery-quarter
+		    ""  // Icon: battery-empty
+		],
+		"tooltip": true
+	    },
+	    "cpu": {
+		"interval": 5,
+		"format": "  {usage}% ({load})", // Icon: microchip
+		"states": {
+		  "warning": 80,
+		  "critical": 105
+		}
+	    },
+	    "disk": {
+            	"format": " {}%",
+            	"tooltip-format": "{used} / {total} used"
+            },
+	    "memory": {
+		"interval": 5,
+		"format": " {}%",
+		"states": {
+		    "warning": 70,
+		    "critical": 90
+		}
+	    },
+	    "pulseaudio": {
+		"scroll-step": 1,
+		"format": "{icon} {volume}%{format_source}",
+		"format-bluetooth": "{icon} {volume}%{format_source}",
+		"format-bluetooth-muted": " {icon}{format_source}",
+		"format-muted": " {format_source}",
+		"format-source": "  {volume}%",
+		"format-source-muted": " ",
+		"format-icons": {
+		    "headphone": "",
+		    "phone": "",
+		    "portable": "",
+		    "car": "",
+		    "default": ["", "", ""]
+		},
+		"on-click": "pavucontrol"
+	    },
+	    "sway/mode": {
+		"format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
+		"tooltip": false
+	    },
+	    "sway/window": {
+		"format": "{}",
+		"max-length": 120
+	    },
+	    "sway/workspaces": {
+		"all-outputs": true,
+		"disable-scroll": true,
+		"format": "{icon} {name}",
+		"format-icons": {
+		    "urgent": "",
+		    "focused": "",
+		    "default": ""
+		}
+	    },
+	    "temperature": {
+	      "critical-threshold": 80,
+	      "interval": 5,
+	      "format": "{icon}  {temperatureC}°C",
+	      "format-icons": [
+		  "", // Icon: temperature-empty
+		  "", // Icon: temperature-quarter
+		  "", // Icon: temperature-half
+		  "", // Icon: temperature-three-quarters
+		  ""  // Icon: temperature-full
+	      ],
+	      "tooltip": true
+	    },
+	    "sway/language": {
+    		"format": "{short} {variant}",
+	    },
+	    "custom/weather": {
+              "return-type": "json",
+              "exec": "bash $HOME/.config/waybar/scripts/weather.sh",
+              "interval": 300,
+              "on-click": "firefox https://wttr.in"
+            },
+	    "tray": {
+		"icon-size": 21,
+		"spacing": 10
+	    },
+	    "clock": {
+	    	"tooltip-format": "<big>{:%Y %B \t week: %V }</big>\n<tt>{calendar}</tt>",
+		"today-format": "<span color='#ff6699'><b><u>{}</u></b></span>",
+		"calendar-weeks-pos": "right",
+		"format-calendar": "<span color='#ecc6d9'><b>{}</b></span>",
+		"format-calendar-weeks": "<span color='#99ffdd'><b>W{:%V}</b></span>",
+		"format-calendar-weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+	    }
+	},
+]

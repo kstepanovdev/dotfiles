@@ -1,0 +1,14 @@
+font=Fira Code 11
+
+background-color=#282828
+progress-color=source #81a1c1
+text-color=#FBF1C7
+padding=10
+margin=5
+
+border-size=2
+border-radius=5
+border-color=#A89984
+
+default-timeout=3000
+
